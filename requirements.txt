@@ -1,3 +1,2 @@
-setuptools
 pycrypto
 pycryptodome
