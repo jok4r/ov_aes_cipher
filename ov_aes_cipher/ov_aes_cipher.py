@@ -30,7 +30,8 @@ class AESCipher(object):
 
     def decrypt(self, enc):
         enc = base64.b64decode(enc)
-        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
+        iv = enc[:AES.block_size]
+        cipher = AES.new(self.key, AES.MODE_CBC, iv)
         return unpad(cipher.decrypt(enc[AES.block_size:]), 16)
 
     @staticmethod
