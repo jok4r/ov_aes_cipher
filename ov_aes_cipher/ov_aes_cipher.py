@@ -35,13 +35,6 @@ class AESCipher(object):
         return unpad(cipher.decrypt(enc[AES.block_size:]), 16)
 
     @staticmethod
-    def pad2(s):
-        if len(s) % 16 != 0:
-            length = 16 - (len(s) % 16)
-            s += bytes([length]) * length
-        return s
-
-    @staticmethod
     def pad(s):
         return pad(s, 16)
 
